@@ -1,62 +1,88 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import PrimaryButton from "../../components/PrimaryButton";
-import Card from "../../components/card";
-import FordMustangGT from "../../assets/1 ford.avif";
-import FordRangerRaptor from "../../assets/2car.jpg";
-import FordEverestTitanium from "../../assets/car3.jpg"; // removed extra space
+import Degolf from "../../assets/images (9).jpeg";
+import FordRangerRaptor from "../../assets/v3_x2TXWxTdRjG__42xMG6pudsPbqVthR6GG3P1o9tULTRMe8EnUJmRLGetv-1nf3i9JxObwgkih8JEeVGjFx5MSZE0WQmikE0UTQSXTTqlphI1DtCjCFGYzDxjKv3fZPn977PxfOeuy7WOZbg8d3nbmj_3H7H_qsI8UxLiK53xTrbsQrN24QQ02yo1s2yHJ1rybIW7swbZqc1Oidt2x.webp";
+import Carwale from "../../assets/virtus-exterior-right-front-three-quarter-10.avif";
 
 const LandingPage = () => {
-  const handleExplore = () => alert("Redirecting to Ford Car Listing Page...");
-  const handleOrder = () => alert("Redirecting to Ford Order Page...");
+  const navigate = useNavigate();
+
+  const handleExplore = () => navigate("/listing");
+  const handleOrder = () => navigate("/order");
 
   return (
-    <div>
+    <div className="bg-white text-gray-900">
       <Navbar />
+
       {/* Hero Section */}
-      <section className="text-center py-20 bg-gray-100">
-        <h1 className="text-5xl font-bold mb-4 text-blue-900">
-          Discover the Power of Ford
-        </h1>
-        <p className="text-gray-600 mb-8">
-          Built for performance, strength, and innovation.
-        </p>
-        <div className="space-x-4">
-          <PrimaryButton label="Explore Ford Cars" onClick={handleExplore} />
-          <PrimaryButton label="Order Your Ford" onClick={handleOrder} type="secondary" />
+      <section
+        className="relative h-[85vh] flex flex-col justify-center items-center text-center bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1617814071593-288a97c8d490?auto=format&fit=crop&w=1920&q=80')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+        <div className="relative z-10 max-w-3xl px-6">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+            Discover the Power of <span className="text-blue-400">Volkswagen</span>
+          </h1>
+          <p className="text-gray-200 text-lg mb-10">
+            Experience precision engineering, cutting-edge innovation, and timeless design.
+          </p>
+          <div className="flex flex-col md:flex-row justify-center gap-4">
+            <PrimaryButton label="Explore Cars" onClick={handleExplore} />
+            <PrimaryButton label="Order Now" onClick={handleOrder} type="secondary" />
+          </div>
         </div>
       </section>
 
-      {/* Ford Models Showcase Section */}
-      <section className="grid md:grid-cols-3 gap-6 p-10 bg-white">
-        <div className="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition-all p-4">
-          <img
-            src={FordMustangGT}
-            alt="Ford Mustang GT"
-            className="w-full h-56 object-cover rounded-xl mb-4"
-          />
-          <h3 className="text-xl font-bold text-center mb-2">Ford Mustang GT</h3>
-          <p className="text-center text-gray-600">Starting at $55,000</p>
+      {/* Car Showcase Section */}
+      <section className="py-20 px-6 md:px-16 bg-gradient-to-b from-gray-50 to-white">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-900">
+          Featured Models
+        </h2>
+        <div className="grid md:grid-cols-3 gap-10">
+          {[ 
+            { img: Degolf, name: "Volkswagen Golf", price: "$55,000" },
+            { img: FordRangerRaptor, name: "Volkswagen Sedan", price: "$45,000" },
+            { img: Carwale, name: "Volkswagen Virtus", price: "$50,000" }
+          ].map((car, idx) => (
+            <div
+              key={idx}
+              className="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500"
+            >
+              <div className="overflow-hidden">
+                <img
+                  src={car.img}
+                  alt={car.name}
+                  className="w-full h-60 object-cover transform group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+              <div className="p-6 text-center">
+                <h3 className="text-2xl font-semibold mb-2 text-gray-800">{car.name}</h3>
+                <p className="text-gray-500 mb-4">{`Starting at ${car.price}`}</p>
+                <button
+                  onClick={handleOrder}
+                  className="mt-2 px-6 py-2 bg-blue-900 text-white rounded-full text-sm font-medium hover:bg-blue-800 transition-all"
+                >
+                  Order Now
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
+      </section>
 
-        <div className="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition-all p-4">
-          <img
-            src={FordRangerRaptor}
-            alt="Ford Ranger Raptor"
-            className="w-full h-56 object-cover rounded-xl mb-4"
-          />
-          <h3 className="text-xl font-bold text-center mb-2">Ford Ranger Raptor</h3>
-          <p className="text-center text-gray-600">Starting at $45,000</p>
-        </div>
-
-        <div className="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition-all p-4">
-          <img
-            src={FordEverestTitanium}
-            alt="Ford Everest Titanium"
-            className="w-full h-56 object-cover rounded-xl mb-4"
-          />
-          <h3 className="text-xl font-bold text-center mb-2">Ford Everest Titanium</h3>
-          <p className="text-center text-gray-600">Starting at $50,000</p>
-        </div>
+      {/* CTA Footer */}
+      <section className="bg-blue-900 text-white py-16 text-center">
+        <h3 className="text-3xl font-semibold mb-4">Ready to Experience Volkswagen?</h3>
+        <p className="mb-8 text-gray-200">
+          Take the next step towards your perfect drive — schedule a test or place your order today.
+        </p>
+        <PrimaryButton label="Get Started" onClick={handleOrder} />
       </section>
     </div>
   );
