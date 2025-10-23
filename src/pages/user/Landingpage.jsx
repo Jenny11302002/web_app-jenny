@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import PrimaryButton from "../../components/PrimaryButton";
 import Degolf from "../../assets/images (9).jpeg";
-import FordRangerRaptor from "../../assets/v3_x2TXWxTdRjG__42xMG6pudsPbqVthR6GG3P1o9tULTRMe8EnUJmRLGetv-1nf3i9JxObwgkih8JEeVGjFx5MSZE0WQmikE0UTQSXTTqlphI1DtCjCFGYzDxjKv3fZPn977PxfOeuy7WOZbg8d3nbmj_3H7H_qsI8UxLiK53xTrbsQrN24QQ02yo1s2yHJ1rybIW7swbZqc1Oidt2x.webp";
+import FordRangerRaptor from "../../assets/car.webp";
 import Carwale from "../../assets/virtus-exterior-right-front-three-quarter-10.avif";
 
 const LandingPage = () => {

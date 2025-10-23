@@ -1,25 +1,14 @@
+import React from "react";
 import Navbar from "../../components/Navbar";
-import FordMustangGT from "../../assets/1 ford.avif";
-import FordRangerRaptor from "../../assets/2car.jpg";
-import FordEverestTitanium from "../../assets/car3.jpg"; // removed extra space
+import Degolf from "../../assets/images (9).jpeg";
+import FordRangerRaptor from "../../assets/car.webp";
+import Carwale from "../../assets/virtus-exterior-right-front-three-quarter-10.avif"; 
 
 const ListingPage = () => {
   const cars = [
-    { 
-      name: "Ford Mustang GT", 
-      price: "$55,000", 
-      image: FordMustangGT 
-    },
-    { 
-      name: "Ford Ranger Raptor", 
-      price: "$45,000", 
-      image: FordRangerRaptor 
-    },
-    { 
-      name: "Ford Everest Titanium", 
-      price: "$50,000", 
-      image: FordEverestTitanium 
-    },
+    { name: "Volkswagen Golf", price: "$55,000", image: Degolf },
+    { name: "Volkswagen Sedan", price: "$45,000", image: FordRangerRaptor },
+    { name: "Volkswagen Virtus", price: "$50,000", image: Carwale },
   ];
 
   return (
@@ -27,7 +16,7 @@ const ListingPage = () => {
       <Navbar />
       <div className="p-10">
         <h2 className="text-center text-4xl font-bold text-blue-900 mb-8">
-          Ford Car Listings
+          Volkswagen Car Listings
         </h2>
 
         <div className="grid md:grid-cols-3 gap-6">
